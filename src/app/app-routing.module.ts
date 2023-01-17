@@ -13,6 +13,14 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then(m => m.RegistroModule)
+  },
+  {
+    path: 'chats',
+    loadChildren: () => import('./chats/chats.module').then(m => m.ChatsModule)
+  },
+  {
+    path: 'chats-telefono',
+    loadChildren: () => import('./chats-telefono/chats-telefono.module').then(m => m.ChatsTelefonoModule)
   }
 ];
 @NgModule({
