@@ -1,0 +1,240 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="custom">
+      Personas conectadas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Personas conectadas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="wrapper">
+     <ion-content>
+
+       <ion-card class="seccion-usuarios2" >
+         <ion-card-header>
+           <ion-card-title> <img class="logo" src="../../assets/img/charla.png" alt=""> Sistema de mensajería</ion-card-title>
+           <ion-toolbar>
+             <ion-searchbar color="light" placeholder="Buscar un chat"></ion-searchbar>
+           </ion-toolbar>
+         </ion-card-header>
+
+         <ion-card-content>
+           <ion-card>
+             <ion-card-content>
+               <!--<ion-grid>
+                 <ion-row>
+                   <ion-col size="sm"><img class="perfil" src="../../assets/img/usuario.png" alt=""></ion-col>
+                   <ion-col size="8"><strong>Nombre de la persona</strong></ion-col>
+                   <ion-col size="2">conectado</ion-col>
+                   <ion-col size="1"><span class="notificacion">3</span></ion-col>
+                 </ion-row>
+               </ion-grid>-->
+
+               <ion-item>
+                 <ion-avatar slot="start">
+                   <img alt="Silhouette of a person's head" src="../../assets/img/usuario.png" />
+                 </ion-avatar>
+                 <ion-label>
+                   <strong class="nombre-perfil">Nombre Persona</strong>
+                 </ion-label>
+               </ion-item>
+
+             </ion-card-content>
+           </ion-card>
+         </ion-card-content>
+         <ion-card-content>
+           <ion-card>
+             <ion-card-content><!--
+               <ion-grid>
+                 <ion-row>
+                   <ion-col size="sm"><img class="perfil" src="../../assets/img/usuario.png" alt=""></ion-col>
+                   <ion-col size="8"><strong>Nombre de la persona</strong></ion-col>
+                   <ion-col size="2">conectado</ion-col>
+                   <ion-col size="1"><span class="notificacion">3</span></ion-col>
+                 </ion-row>
+               </ion-grid>-->
+
+               <ion-item>
+                 <ion-avatar slot="start">
+                   <img alt="Silhouette of a person's head" src="../../assets/img/usuario.png" />
+                 </ion-avatar>
+                 <ion-label>
+                   <strong class="nombre-perfil">Nombre Persona</strong>
+                 </ion-label>
+               </ion-item>
+
+             </ion-card-content>
+           </ion-card>
+         </ion-card-content>
+
+       </ion-card>
+
+     </ion-content>
+
+
+  </div>
+
+
+
+<section class="body-chat">
+  <div class="seccion-titulo">
+    <h3>
+      <i class="fas fa-comments"></i>
+      Sistema de mensajeria
+    </h3>
+  </div>
+  <div class="seccion-usuarios">
+    <div class="seccion-buscar">
+      <div class="input-buscar">
+        <input type="search" placeholder="Buscar usuario">
+        <i class="fas fa-search"></i>
+      </div>
+    </div>
+    <div class="seccion-lista-usuarios">
+      <div class="usuario">
+        <div class="avatar">
+          <img src="ruta_img" alt="img">
+          <span class="estado-usuario enlinea"></span>
+        </div>
+        <div class="cuerpo">
+          <span> Nombre apellido</span>
+          <span>detalles de mensaje</span>
+        </div>
+        <span class="notificacion">
+                    3
+                </span>
+      </div>
+      <div class="usuario">
+        <div class="avatar">
+          <img src="ruta_img" alt="img">
+          <span class="estado-usuario ocupado"></span>
+        </div>
+        <div class="cuerpo">
+          <span> Nombre apellido</span>
+          <span>detalles de mensaje</span>
+        </div>
+        <span class="notificacion">
+                    1
+                </span>
+      </div>
+      <div class="usuario">
+        <div class="avatar">
+          <img src="ruta_img" alt="img">
+          <span class="estado-usuario desconectado"></span>
+        </div>
+        <div class="cuerpo">
+          <span> Nombre apellido</span>
+          <span>detalles de mensaje</span>
+        </div>
+        <span class="notificacion">
+                    1
+                </span>
+      </div>
+    </div>
+  </div>
+  <div class="seccion-chat">
+    <div class="usuario-seleccionado">
+      <div class="avatar">
+        <img src="ruta_img" alt="img">
+      </div>
+      <div class="cuerpo">
+        <span>Nombre de usuario</span>
+        <span>Activo - Escribiendo...</span>
+      </div>
+      <div class="opciones">
+        <ul>
+          <li>
+            <button type="button"><i class="fas fa-video"></i></button>
+          </li>
+          <li>
+            <button type="button"><i class="fas fa-phone-alt"></i></button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel-chat">
+      <div class="mensaje">
+        <div class="avatar">
+          <img src="ruta_img" alt="img">
+        </div>
+        <div class="cuerpo">
+          <!-- <img src="http://localhost/multimedia/png/user-foto-3.png" alt=""> -->
+          <div class="texto">
+            Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Dolor eligendi voluptatum dolore voluptas iure.
+            <span class="tiempo">
+                            <i class="far fa-clock"></i>
+                            Hace 5 min
+                        </span>
+          </div>
+          <ul class="opciones-msj">
+            <li>
+              <button type="button">
+                <i class="fas fa-times"></i>
+              </button>
+            </li>
+            <li>
+              <button type="button">
+                <i class="fas fa-share-square"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- derecha -->
+      <div class="mensaje left">
+        <div class="cuerpo">
+          <!-- <img src="http://localhost/multimedia/png/user-foto-3.png" alt=""> -->
+          <div class="texto">
+            Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Dolor eligendi voluptatum dolore voluptas iure.
+            <span class="tiempo">
+                            <i class="far fa-clock"></i>
+                            Hace 6 min
+                        </span>
+          </div>
+          <ul class="opciones-msj">
+            <li>
+              <button type="button">
+                <i class="fas fa-times"></i>
+              </button>
+            </li>
+            <li>
+              <button type="button">
+                <i class="fas fa-share-square"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="avatar">
+          <img src="ruta_img" alt="img">
+        </div>
+      </div>
+    </div>
+    <div class="panel-escritura">
+      <form class="textarea">
+        <div class="opcines">
+          <button type="button">
+            <i class="fas fa-file"></i>
+            <label for="file"></label>
+            <input type="file" id="file">
+          </button>
+          <button type="button">
+            <i class="far fa-image"></i>
+            <label for="img"></label>
+            <input type="file" id="img">
+          </button>
+        </div>
+        <textarea placeholder="Escribir mensaje"></textarea>
+        <button type="button" class="enviar">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
