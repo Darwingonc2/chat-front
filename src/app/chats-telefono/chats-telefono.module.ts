@@ -8,6 +8,9 @@ import {IonicModule} from "@ionic/angular";
 
 @NgModule({
   declarations: [ChatsTelefonoComponent],
+  exports: [
+    ChatsTelefonoComponent
+  ],
   imports: [
     CommonModule,
     IonicModule,

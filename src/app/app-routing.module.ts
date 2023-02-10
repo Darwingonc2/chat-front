@@ -21,6 +21,18 @@ const routes: Routes = [
   {
     path: 'chats-telefono',
     loadChildren: () => import('./chats-telefono/chats-telefono.module').then(m => m.ChatsTelefonoModule)
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule)
+  },
+  {
+    path: 'configuracion',
+    loadChildren: () => import('./configuracion/configuracion.module').then(m => m.ConfiguracionModule)
+  },
+  {
+    path: 'chatear',
+    loadChildren: () => import('./chatear/chatear.module').then(m => m.ChatearModule)
   }
 ];
 @NgModule({
