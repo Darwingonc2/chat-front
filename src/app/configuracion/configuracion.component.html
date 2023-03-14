@@ -19,17 +19,22 @@
           <div class="wrapper">
             <div class="body">
 
-              <form>
+              <form [formGroup]="formActualizarPerfil" (ngSubmit)="actualizarPerfil(formActualizarPerfil.value)">
               <ion-toolbar>
                 <ion-title size="large"><img class="logo"> <strong> Ajustes del perfil</strong></ion-title>
               </ion-toolbar>
 
               <ion-item>
-                <ion-label position="stacked">Nombre completo</ion-label>
-                <ion-input placeholder="Enter text"></ion-input>
+                <ion-label position="stacked">Nombre </ion-label>
+                <ion-input formControlName="nombre" placeholder="{{identity?.nombre}}"></ion-input>
               </ion-item>
 
-                <ion-button expand="full" shape="round" color="light">Guardar información</ion-button>
+                <ion-item>
+                  <ion-label position="stacked">Apellido</ion-label>
+                  <ion-input formControlName="apellido" placeholder="{{identity?.apellido}}"></ion-input>
+                </ion-item>
+
+                <ion-button expand="full" type="submit" shape="round" color="light">Guardar información</ion-button>
               </form>
 
               <form>

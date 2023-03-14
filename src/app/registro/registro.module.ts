@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RegistroRoutingModule } from './registro-routing.module';
 import {RegistroComponent} from "./registro.component";
 import {IonicModule} from "@ionic/angular";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import {IonicModule} from "@ionic/angular";
   imports: [
     CommonModule,
     IonicModule,
-    RegistroRoutingModule
+    RegistroRoutingModule,
+    ReactiveFormsModule
   ]
 })
-export class RegistroModule { }
+export class RegistroModule {
+}

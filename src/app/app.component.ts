@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {UsuarioService} from "./services/usuario.service";
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  pagina: boolean = true;
+  token: any;
 
   public appPages = [
     { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
@@ -19,7 +20,56 @@ export class AppComponent {
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
-  constructor() {
 
+  public id: any;
+  public identity: any;
+
+  constructor(
+    private usuarioServicio: UsuarioService,
+  ) {
+    this.token =  localStorage.getItem("token");
   }
+
+  async ngOnInit(){
+    this.token = await localStorage.getItem("token");
+    this.id = await this.usuarioServicio.getIdFromLocalStorage();
+    if (this.token){
+      await this.encontrarUsuario(this.id);
+    }
+  }
+
+  validarToken(token: any, id: any){
+    this.token = token;
+    this.encontrarUsuario(id);
+  }
+
+  async encontrarUsuario(id: any) {
+    const data = {
+      id: id,
+    };
+    this.usuarioServicio.encontrarUsuario(data).then((query: any) => {
+      if (query.ok){
+        this.identity = query.data;
+      } else{
+        alert('ocurrio un error');
+      }
+    });
+  }
+
+  cerrarSesion() {
+    /*const data = {
+      id: localStorage.getItem("id"),
+      activo: 0,
+    }
+    this.usuarioServicio.cerrar_sesion(this.token, data).subscribe(
+      res => {
+        window.location.reload();
+      }, error => {
+        alert('token no valido');
+      });*/
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
+    window.location.reload();
+  }
+
 }

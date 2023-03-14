@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {AuthGuardService} from "./services/auth.guard.service";
 
 const routes: Routes = [
   {
@@ -15,7 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('./registro/registro.module').then(m => m.RegistroModule)
   },
   {
-    path: 'chats',
+    path: 'chats', canActivate: [AuthGuardService],
     loadChildren: () => import('./chats/chats.module').then(m => m.ChatsModule)
   },
   {
@@ -23,15 +24,15 @@ const routes: Routes = [
     loadChildren: () => import('./chats-telefono/chats-telefono.module').then(m => m.ChatsTelefonoModule)
   },
   {
-    path: 'chat',
+    path: 'chat', canActivate: [AuthGuardService],
     loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule)
   },
   {
-    path: 'configuracion',
+    path: 'configuracion', canActivate: [AuthGuardService],
     loadChildren: () => import('./configuracion/configuracion.module').then(m => m.ConfiguracionModule)
   },
   {
-    path: 'chatear',
+    path: 'chatear', canActivate: [AuthGuardService],
     loadChildren: () => import('./chatear/chatear.module').then(m => m.ChatearModule)
   }
 ];
