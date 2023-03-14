@@ -2,13 +2,13 @@
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
 
-<ion-app *ngIf="pagina">
+<ion-app *ngIf="token!">
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Perfil</ion-list-header>
-          <ion-note>darwin@gmail.com</ion-note>
+          <ion-list-header>{{identity?.nombre}} {{identity?.apellido}}</ion-list-header>
+          <ion-note>{{identity?.correo}}</ion-note>
 
           <ion-menu-toggle auto-hide="false">
             <ion-item routerDirection="root" [routerLink]="'/chat'" lines="none" detail="false" routerLinkActive="selected">
@@ -25,7 +25,7 @@
           </ion-menu-toggle>
         </ion-list>
 
-        <ion-button expand="block" size="default">Cerrar Sesion</ion-button>
+        <ion-button expand="block" (click)="cerrarSesion()" size="default">Cerrar Sesion</ion-button>
 
           <!--<ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">

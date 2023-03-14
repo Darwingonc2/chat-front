@@ -21,29 +21,35 @@
     <div class="body">
       <img class="logo" src="../../../assets/img/login.png" alt="">
       <h1>Registro</h1>
-      <form>
+      <form [formGroup]="informacionBasica" (ngSubmit)="submitForm(informacionBasica.value)">
 
         <ion-item class="custom">
-          <ion-label position="floating">Nombre completo</ion-label>
-          <ion-input type="name"></ion-input>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input type="name" formControlName="nombre" ></ion-input>
           <ion-note slot="helper">Ingrsa tu nombre</ion-note>
         </ion-item>
 
         <ion-item class="custom">
+          <ion-label position="floating">Apellido</ion-label>
+          <ion-input type="name" formControlName="apellido" ></ion-input>
+          <ion-note slot="helper">Ingresa tu apellido</ion-note>
+        </ion-item>
+
+        <ion-item class="custom">
           <ion-label position="floating">Email</ion-label>
-          <ion-input type="email" ngModel email></ion-input>
-          <ion-note slot="helper">Ingresa un email válido</ion-note>
-          <ion-note slot="error">Correo invalido</ion-note>
+          <ion-input type="email" formControlName="correo"></ion-input>
+          <!--<ion-note slot="helper">Ingresa un email válido</ion-note>
+          <ion-note slot="error">Correo invalido</ion-note>-->
         </ion-item>
 
         <ion-item class="custom">
           <ion-label position="floating">Contraseña</ion-label>
-          <ion-input type="password"></ion-input>
-          <ion-note slot="helper">Ingresa tu contraseña</ion-note>
-          <ion-note slot="error">Invalid email</ion-note>
+          <ion-input type="password" formControlName="password"></ion-input>
+          <!--<ion-note slot="helper">Ingresa tu contraseña</ion-note>
+          <ion-note slot="error">Invalid email</ion-note>-->
         </ion-item>
 
-        <ion-button expand="block" size="large">Registrarse</ion-button>
+        <ion-button type="submit" expand="block" size="large">Registrarse</ion-button>
 
         <p class="mt-3"> ¿Ya tienes cuenta? <a routerLink="/login">Login</a></p>
 
