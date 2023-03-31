@@ -1,0 +1,65 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-bottom: 70px;
+
+  .message {
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 10px;
+
+    &-text {
+      font-size: 16px;
+    }
+
+    &-time {
+      font-size: 12px;
+      margin-top: 5px;
+      align-self: flex-end;
+    }
+
+    &.sent {
+      align-self: flex-end;
+      background-color: #DCF8C6;
+    }
+
+    &.received {
+      align-self: flex-start;
+      background-color: #EEE;
+    }
+  }
+}
+
+.input-container {
+  /*display: flex;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;*/
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+
+  ion-input {
+    flex: 1;
+    margin-right: 10px;
+  }
+
+  ion-button {
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+  }
+}

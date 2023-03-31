@@ -3,10 +3,11 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import {AuthGuardService} from "./services/auth.guard.service";
 
 const routes: Routes = [
-  {
+  /*{
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },
+  },*/
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
@@ -34,6 +35,14 @@ const routes: Routes = [
   {
     path: 'chatear', canActivate: [AuthGuardService],
     loadChildren: () => import('./chatear/chatear.module').then(m => m.ChatearModule)
+  },
+  {
+    path: 'prueba-chatear', canActivate: [AuthGuardService],
+    loadChildren: () => import('./prueba-chatear/prueba-chatear.module').then(m => m.PruebaChatearModule)
+  },
+  {
+    path: 'terminos-condiciones', canActivate: [AuthGuardService],
+    loadChildren: () => import('./terminos-condiciones/terminos-condiciones.module').then(m => m.TerminosCondicionesModule)
   }
 ];
 @NgModule({

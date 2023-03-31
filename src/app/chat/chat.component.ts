@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UsuarioService} from "../services/usuario.service";
+import {ChatearComponent} from "../chatear/chatear.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-chat',
@@ -14,6 +16,8 @@ export class ChatComponent implements OnInit {
 
   constructor(
     private usuarioServicio: UsuarioService,
+    private chatear: ChatearComponent,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -42,11 +46,15 @@ export class ChatComponent implements OnInit {
     this.usuarioServicio.encontrarChats(data).then((query: any) => {
       if (query.ok){
         this.chats = query.data;
-        console.log(this.chats);
       } else{
         alert('ocurrio un error');
       }
     });
+  }
+
+  vincularChat(idusuario2: any){
+    this.chatear.vincularChat(this.id, idusuario2);
+    this.router.navigate(['chatear']);
   }
 
 

@@ -6,14 +6,14 @@
             <ion-menu-button></ion-menu-button>
             <ion-back-button defaultHref="/chat"></ion-back-button>
           </ion-buttons>
-          <ion-title>Configuración del perfil</ion-title>
+          <ion-title>Chateando</ion-title>
         </ion-toolbar>
       </ion-header>
 
       <ion-content [fullscreen]="true">
         <ion-header collapse="condense">
           <ion-toolbar>
-            <ion-title size="large">Configuracion</ion-title>
+            <ion-title size="large">Chateando</ion-title>
           </ion-toolbar>
         </ion-header>
 
@@ -27,8 +27,9 @@
                     <img src="../../assets/img/usuario.png" alt="img">
                   </div>
                   <div class="cuerpo">
-                    <span>Nombre de usuario</span>
-                    <span>Activo - Escribiendo...</span>
+                    <span>{{persona2?.nombre}} {{persona2?.apellido}}</span>
+                    <span style="margin-top: 5px" *ngIf="persona2?.activo === 1">Activo ✔️</span>
+                    <span style="margin-top: 5px" *ngIf="persona2?.activo === 0">Inactivo ❌️</span>
                   </div>
                   <div class="opciones">
                     <ul>
@@ -42,65 +43,68 @@
                   </div>
                 </div>
                 <div class="panel-chat">
-                  <div class="mensaje">
-                    <div class="avatar">
-                      <img src="../../assets/img/usuario.png" alt="img">
-                    </div>
-                    <div class="cuerpo">
-                      <!-- <img src="http://localhost/multimedia/png/user-foto-3.png" alt=""> -->
-                      <div class="texto">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Dolor eligendi voluptatum dolore voluptas iure.
-                        <span class="tiempo">
-                            <i class="far fa-clock"></i>
-                            Hace 5 min
-                        </span>
+                  <div *ngFor="let mensaje of mensajes">
+                    <div class="mensaje" *ngIf="(id === mensaje.idusuario2) && (mensaje.idusuario1 == idusuario2)">
+                      <div class="avatar">
+                        <img src="../../assets/img/usuario.png" alt="img">
                       </div>
-                      <ul class="opciones-msj">
-                        <li>
-                          <button type="button">
-                            <i class="fas fa-times"></i>
-                          </button>
-                        </li>
-                        <li>
-                          <button type="button">
-                            <i class="fas fa-share-square"></i>
-                          </button>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- derecha -->
-                  <div class="mensaje left">
-                    <div class="cuerpo">
-                      <!-- <img src="http://localhost/multimedia/png/user-foto-3.png" alt=""> -->
-                      <div class="texto">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Dolor eligendi voluptatum dolore voluptas iure.
-                        <span class="tiempo">
+                      <div class="cuerpo">
+                        <!-- <img src="http://localhost/multimedia/png/user-foto-3.png" alt=""> -->
+                        <div class="texto" style="text-align: left">
+                          {{mensaje.mensaje}}
+                          <span class="tiempo">
                             <i class="far fa-clock"></i>
-                            Hace 6 min
+                            Enviado {{mensaje.hora}}
                         </span>
+                        </div>
+                        <!--<ul class="opciones-msj">
+                          <li>
+                            <button type="button">
+                              <i class="fas fa-times"></i>
+                            </button>
+                          </li>
+                          <li>
+                            <button type="button">
+                              <i class="fas fa-share-square"></i>
+                            </button>
+                          </li>
+                        </ul>-->
                       </div>
-                      <ul class="opciones-msj">
-                        <li>
-                          <button type="button">
-                            <i class="fas fa-times"></i>
-                          </button>
-                        </li>
-                        <li>
-                          <button type="button">
-                            <i class="fas fa-share-square"></i>
-                          </button>
-                        </li>
-                      </ul>
                     </div>
-                    <div class="avatar">
-                      <img src="../../assets/img/usuario.png" alt="img">
+                    <!-- derecha -->
+                    <div class="mensaje left" *ngIf="(id === mensaje.idusuario1) && (idusuario2 == mensaje.idusuario2)">
+                      <div class="cuerpo" >
+                        <!-- <img src="http://localhost/multimedia/png/user-foto-3.png" alt=""> -->
+                        <div class="texto" style="text-align: right">
+                          {{mensaje.mensaje}}
+                          <span class="tiempo">
+                            <i class="far fa-clock"></i>
+                            Enviado {{mensaje.hora}}
+                        </span>
+                        </div>
+                        <!--<ul class="opciones-msj">
+                          <li>
+                            <button type="button">
+                              <i class="fas fa-times"></i>
+                            </button>
+                          </li>
+                          <li>
+                            <button type="button">
+                              <i class="fas fa-share-square"></i>
+                            </button>
+                          </li>
+                        </ul>-->
+                      </div>
+                      <div class="avatar" *ngIf="(id === mensaje.idusuario1) && (idusuario2 == mensaje.idusuario2)">
+                        <img src="../../assets/img/usuario.png" alt="img">
+                      </div>
                     </div>
                   </div>
 
-                  <div class="mensaje left">
+
+                  <!--<div class="mensaje left">
                     <div class="cuerpo">
-                      <!-- <img src="http://localhost/multimedia/png/user-foto-3.png" alt=""> -->
+                      &lt;!&ndash; <img src="http://localhost/multimedia/png/user-foto-3.png" alt=""> &ndash;&gt;
                       <div class="texto">
                         Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Dolor eligendi voluptatum dolore voluptas iure.
                         <span class="tiempo">
@@ -124,10 +128,10 @@
                     <div class="avatar">
                       <img src="../../assets/img/usuario.png" alt="img">
                     </div>
-                  </div>
+                  </div>-->
                 </div>
                 <div class="panel-escritura">
-                  <form class="textarea">
+                  <form class="textarea" [formGroup]="formMensaje" (ngSubmit)="enviarMensaje(formMensaje.value)">
                     <div class="opcines">
                       <button type="button">
                         <i class="fas fa-file"></i>
@@ -140,8 +144,8 @@
                         <input type="file" id="img">
                       </button>
                     </div>
-                    <textarea placeholder="Escribir mensaje"></textarea>
-                    <button type="button" class="enviar">
+                    <textarea formControlName="mensaje" id="mensajes" placeholder="Escribir mensaje"></textarea>
+                    <button type="submit" class="enviar">
                       <i class="fas fa-paper-plane"></i>
                     </button>
                   </form>

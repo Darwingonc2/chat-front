@@ -57,7 +57,7 @@ export class AppComponent {
   }
 
   cerrarSesion() {
-    /*const data = {
+    const data = {
       id: localStorage.getItem("id"),
       activo: 0,
     }
@@ -66,9 +66,8 @@ export class AppComponent {
         window.location.reload();
       }, error => {
         alert('token no valido');
-      });*/
-    localStorage.removeItem("token");
-    localStorage.removeItem("id");
+      });
+    localStorage.clear();
     window.location.reload();
   }
 

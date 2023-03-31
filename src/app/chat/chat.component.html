@@ -29,17 +29,30 @@
 
       <ion-card>
         <ion-card-content>
-          <ion-list class="custom">
-            <ion-item routerLink="/chatear" detail="true">
+          <ion-item-group>
+            <ion-item-divider>
+              <ion-label slot="start">
+                Contacto
+              </ion-label>
+              <ion-label slot="end">
+                En linea
+              </ion-label>
+            </ion-item-divider>
+          </ion-item-group>
+        </ion-card-content>
+        <ion-card-content *ngFor="let chat of chats">
+          <ion-list class="custom" *ngIf="id!==chat.idusuario">
+            <ion-item (click)="vincularChat(chat.idusuario)" detail="true">
               <ion-avatar slot="start">
                 <img src="../../assets/img/usuario.png" />
               </ion-avatar>
               <ion-label>
-                <h2>Finn</h2>
-                <h3>I'm a big deal</h3>
-                <p>Listen, I've had a pretty messed up day...</p>
+                <h2>{{chat.nombre}} {{chat.apellido}}</h2>
+                <!--<h3>I'm a big deal</h3>
+                <p>Listen, I've had a pretty messed up day...</p>-->
               </ion-label>
-              <ion-badge slot="end">11</ion-badge>
+              <ion-badge slot="end" color="success" *ngIf="chat.activo === 1">ㅤ</ion-badge>
+              <ion-badge slot="end" color="danger" *ngIf="chat.activo === 0 ">ㅤ</ion-badge>
             </ion-item>
 
             <!--<ion-item href="/chatear" detail="true">
